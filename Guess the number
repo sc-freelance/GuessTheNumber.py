@@ -1,0 +1,30 @@
+import random
+
+#Introduction to the game
+print("Let's play a game where you will place a boundary, I think of a number, you guess it and I say higher or lower until you got it correct.\nBut be warned, for you only have 7 chances to succeed otherwise: GAME OVER! ")
+print(f"\nPlease select a lower bound and an upper bound for me to pick a number")
+
+#Inputing the lower and upper bounds for the computer to pick a number
+lower = int(input("\nPlease add a lower bound"))
+upper = int(input("\nPlease add an upper bound"))
+
+print("\nYou will now have 7 guesses to identify my number. Good Luck...")
+
+num = random.randint(lower, upper)
+ch = 7         #No. of guesses allowed
+gc = 0         #Guess counter
+
+#Conditions
+while gc < ch:
+    gc += 1
+    guess = int(input("guess the number"))
+    if guess == num:
+        print("\nCongradulations, you got it right")
+        break
+    elif gc >= ch and guess != num:
+        print("Sorry. The number was {num}. Better luck next time")
+    elif guess > num:
+        print("Think Lower")
+    elif guess < num:
+        print("Think Higher")
+print("\nRefresh the game to try again...")
